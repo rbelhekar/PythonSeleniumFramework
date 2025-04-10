@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/BankingQAAutomation.iml" filepath="$PROJECT_DIR$/.idea/BankingQAAutomation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PythonSeleniumFramework.iml" filepath="$PROJECT_DIR$/.idea/PythonSeleniumFramework.iml" />
     </modules>
   </component>
 </project>
