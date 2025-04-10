@@ -1,24 +1,28 @@
-from pages import LoginPage
+from pages.login_page import LoginPage
+from pages.dashboard_page import DashboardPage
 import time
 
 def test_valid_login(init_driver):
     driver = init_driver
     login_page = LoginPage(driver)
 
-    login_page.enter_username("Admin")
-    login_page.enter_password("admin123")
-    login_page.click_login()
+    # Valid Login Test
+    login_page.username_input.enter_text("Admin")
+    login_page.password_input.enter_text("admin123")
+    login_page.login_button.click_if_enabled()
     time.sleep(2)
 
-    assert login_page.is_dashboard_visible(), "Login failed: Dashboard not visible!"
+    dashboard_page = DashboardPage(driver)
+    assert dashboard_page.dashboard_label.visible, "Login failed: Dashboard not visible!"
+
 
 def test_invalid_login(init_driver):
     driver = init_driver
     login_page = LoginPage(driver)
 
-    login_page.enter_username("wrongAdmin")
-    login_page.enter_password("wrongPasswd")
-    login_page.click_login()
+    login_page.username_input.enter_text("wrongAdmin")
+    login_page.password_input.enter_text("wrongPasswd")
+    login_page.login_button.click_if_enabled()
     time.sleep(2)
 
-    assert login_page.get_element_text(login_page.ERROR_LABEL) == "Invalid credentials", "Error Text does not Match!"
+    assert login_page.error_label.text == "Invalid credentials", "Error Text does not Match!"

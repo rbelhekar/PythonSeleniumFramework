@@ -1,2 +1,1 @@
-from .base_page import BasePage
-from .login_page import LoginPage
+from . import base_page, dashboard_page, login_page

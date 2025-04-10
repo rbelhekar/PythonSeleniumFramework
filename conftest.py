@@ -1,5 +1,5 @@
 import pytest
-from utils.driver_factory import DriverFactory
+from utils import DriverFactory
 
 @pytest.fixture(scope="function")
 def init_driver():
